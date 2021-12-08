@@ -6,24 +6,23 @@ int main()
   vector<int> vec = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   /* declear itertor with name item */
-  vector<int>::iterator pointer;
-  // /* loop over itertor */
-  for (pointer = vec.begin(); pointer != vec.end(); pointer++)
-  {
-    cout << *pointer << ", "; /* must use * to print the value of refernce */
-  }
+  /* loop over itertor */
+  vector<int>::iterator ptr; /* Declare pointer varibale */
+  for (ptr = vec.begin(); ptr != vec.end(); ptr++)
+    cout << (*ptr) << ", "; /* must use * to print the value of refernce */
 
   /* auto keyword */
-  auto in = 45;            /* Dynamic set data type */
-  auto st = "Hello";       /* Dynamic set data type */
-  auto ::iterator pointer; /* Dynamic set data type */
-
+  /* must assign value during declere variable with auto keyword */
+  auto in = 45;           /* Dynamic set data type */
+  auto st = "Hello";      /* Dynamic set data type */
+  auto it = vec.begin(); /* Dynamic set data type */
   /* Smart Loop */
-  for (auto &item : vec) /* use auto key to smart loop */ /* if use refernce use--> &item */
-  {
-    cout << item << ", "; /*this is refernce of orignal not a copy  */
-  }
+  for (auto &item : vec) /* use auto key to smart loop */ /*  &item for orignal value */
+    cout << item << ", ";                                
 
-
+  /* smart auto loop with iterator */
+  for (auto it = vec.begin(); it != vec.end(); it++)
+    cout << *it << ", ";
+  
   return 0;
 }
